@@ -1,0 +1,22 @@
+{ 
+  "name": "solar-lead-funnel", 
+  "version": "1.0.0", 
+  "private": true, 
+  "scripts": { 
+    "start": "concurrently --kill-others-on-fail --success first npm:start:nodemon npm:start:frontend", 
+    "start:frontend": "webpack serve --mode development", 
+    "start:nodemon": "nodemon backend/server.js", 
+    "build": "npm run build:frontend && cd backend && npm install && npm run build", 
+    "build:frontend": "webpack --mode production" 
+  }, 
+  "dependencies": { 
+    "concurrently": "^7.0.0", 
+    "dotenv": "^10.0.0" 
+  }, 
+  "devDependencies": { 
+    "webpack": "^5.0.0", 
+    "webpack-cli": "^4.0.0", 
+    "webpack-dev-server": "^4.0.0", 
+    "nodemon": "^2.0.7" 
+  } 
+}
